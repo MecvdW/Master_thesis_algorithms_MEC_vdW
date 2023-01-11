@@ -8,7 +8,7 @@ close all; clear all; clc
 %% Load files
 j = 3;
 % First make the Folder Directory
-MyFolder = 'D:\Marleen_Thesis\GlostrupRBD';
+MyFolder = '*Filepath Dataset*';
 % Now find all files in the folder and subfolders that have to be included
 filePattern = fullfile(MyFolder,'**/*.*');
 TheFiles = dir(filePattern);
@@ -25,7 +25,7 @@ for i = 4:5:length(TheFiles)
     j = j+1;
     FullFileName = fullfile(TheFiles(i).folder);
     % Find diagnosis classification
-    DiagFile = extractAfter(FullFileName,'GlostrupRBD\');
+    DiagFile = extractAfter(FullFileName,'*Folder dataset*');
     DiagnosisNames = table2cell(DiagnosisFile(:,1));
     Diagloc = find(strcmp(DiagFile,DiagnosisNames));
     DiagNumbers = DiagnosisFile(Diagloc,2:3);
